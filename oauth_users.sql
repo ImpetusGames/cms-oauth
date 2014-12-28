@@ -25,8 +25,7 @@ CREATE TABLE IF NOT EXISTS `oauth_users` (
   `display_name` text NOT NULL,
   `first_name` text,
   `last_name` text,
-  `email` text,
-  `contact` char(10) DEFAULT 'undefined'
+  `email` text
 ) ENGINE=MyISAM AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 COMMENT='Stores user data from OAuth providers (e.g. Twitter)';
 
 --
