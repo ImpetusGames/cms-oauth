@@ -36,3 +36,13 @@ All you need to do now is to simply create a link on your web site to enable aut
     <a href="oauth?initlogin=Twitter" title="Login with Twitter">Login</a>
 
 In other words: simply call the oauth page of your CMS with a query string parameter called "initlogin" with the OAuth provider of your choice as value. Of course you can create multiple such links for different providers.
+
+After the user has authenticated he or she will be redirected to the original page (where you have added the login link). If authentication succeeded, the PHP session variable `$_SESSION['oauth_status']` will be set to "signed-in", and various profile data is available:
+
+    $_SESSION['oauth_user_id']
+    $_SESSION['oauth_user_name']
+    $_SESSION['oauth_first_name']
+    $_SESSION['oauth_last_name']
+    $_SESSION['oauth_display_name']
+
+If authentication failed, then `$_SESSION['oauth_status']` will be set to "auth-error", and `$_SESSION['oauth_error_msg']` set to an error message.
